@@ -1,0 +1,26 @@
+body {
+    padding-top: 56px; 
+  }
+  nav {
+    background-color: #b69e9e; 
+  }
+  /* nav a {
+    color: #333; 
+    font-size: large;
+  } */
+
+  nav a{
+    direction: none;
+  }
+
+  .active_link{
+    color: rgb(185, 78, 6);
+    
+  }
+  .active_link  a :hover{
+text-decoration: underline;
+  }
+
+/* a :hover{
+    text-decoration: underline;
+  } */

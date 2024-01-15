@@ -1,0 +1,25 @@
+<h2 class="mb-4">Shopping Cart</h2>
+<hr>
+<div class="container mt-4">
+  
+  <ul class="list-group  ">
+    <li *ngFor="let item of cartItems" class="list-group-item d-flex justify-content-between align-items-center h-25 d-inline-block">
+      
+      <div class="col-6 h-10 d-inline-block">
+       <img [src]=" item.product.images[0]" alt="" class="img-thumbnail">
+      </div>
+      <div>
+        {{ item.product.title }} - Quantity: {{ item.quantity }}
+      </div>
+      <div class="h5" >Price:{{item.product.price}}$</div>
+      <div>
+        <button class="btn btn-primary btn-sm mx-1" (click)="increaseQuantity(item)" >+</button>
+        <button class="btn btn-secondary btn-sm mx-1" (click)="decreaseQuantity(item)" >-</button>
+        <button class="btn btn-danger btn-sm mx-1" (click)="removeFromCart(item)" >Remove</button>
+      </div>
+    </li>
+  </ul>
+  
+  <p>TotalPrrice:{{totalprice}}</p>
+  <button class="btn btn-danger mt-4" (click)="clearCart()" >Clear Cart</button>
+</div>

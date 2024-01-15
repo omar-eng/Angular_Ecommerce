@@ -1,0 +1,174 @@
+<h2>Product Details: {{product.title}}</h2>
+<hr>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                <div class="row py-3 shadow-5">
+                  <div class="col-12 mb-1">
+                    <div class="lightbox">
+                      <img
+                        src="{{product.images[0]}}"
+                        alt="Gallery image 1"
+                        class="ecommerce-gallery-main-img active w-100"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img
+                      src="{{product.images[1]}}"
+                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
+                      alt="Gallery image 1"
+                      class="active w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img
+                      src="{{product.images[2]}}"
+                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+                      alt="Gallery image 2"
+                      class="w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img
+                      src="{{product.images[3]}}"
+                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+                      alt="Gallery image 3"
+                      class="w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img
+                      src="{{product.images[4]}}"
+                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+                      alt="Gallery image 3"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-7">
+            <div class="main-description px-2">
+                <div class="category text-bold text-dark">
+                    Category: {{product.category}}
+                </div>
+                <div class="product-title text-bold my-3">
+                    {{product.title}}
+                </div>
+                <span class="text-bold text-dark">{{product.brand}}</span>
+
+                <div class="price-area my-4">
+                    <p>
+                        @if (product.discountPercentage) {
+                            <p class="old-price mb-1"><del>${{product.price}}</del> <span class="old-price-discount text-danger">({{product.discountPercentage}}% off)</span></p>
+                            <p class="new-price text-bold mb-1">${{product.price | calcDisc: product.discountPercentage}} </p>
+                        }@else {
+                            <p class="new-price text-bold mb-1">${{product.price}} </p>
+
+                        }
+                    </p>
+                    
+                    <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+                    <p class="rateing">
+
+                        @if (product.rating<=0) {
+                            <i class="bi bi-star bigger-icon"></i>
+                            <i class="bi bi-star bigger-icon"></i>
+                            <i class="bi bi-star bigger-icon"></i>
+                            <i class="bi bi-star bigger-icon"></i>
+                            <i class="bi bi-star bigger-icon"></i>
+                
+                
+                        }@else if(product.rating>1 && product.rating<=2){
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                
+                        }
+                        @else if(product.rating>2 && product.rating<=3){
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                
+                        }
+                        @else if(product.rating>3 && product.rating<4){
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                
+                        }
+                        @else if(product.rating>=4 && product.rating<=(4.5)){
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star bigger-icon"></i>
+                
+                        }
+                        @else {
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+                
+                        }
+                      </p><span>({{product.rating}})</span>
+                </div>
+
+
+                <div class="buttons d-flex my-5">
+                    <div class="block">
+                        <a href="#" class="shadow btn custom-btn ">BuyNow</a>
+                    </div>
+                    <div class="block">
+                        <button class="shadow btn custom-btn" (click)="AddtoCart(product)" >Add to cart</button>
+                    </div>
+<!-- 
+                    <div class="block quantity">
+                        <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5" placeholder="Enter email" name="cart_quantity">
+                    </div> -->
+                </div>
+
+
+
+
+            </div>
+
+            <div class="product-details my-4">
+                <p class="details-title text-color mb-1">Product Details</p>
+                <p class="description">{{product.description}}</p>
+            </div>
+          
+                     <div class="row questions bg-light p-3">
+                <div class="col-md-1 icon">
+                    <i class="fa-brands fa-rocketchat questions-icon"></i>
+                </div>
+                <div class="col-md-11 text">
+                    Have a question about our products at E-Store? Feel free to contact our representatives via live chat or email.
+                </div>
+            </div>
+
+            <div class="delivery my-4">
+                <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <b>Delivery done in 3 days from date of purchase</b> </p>
+                <p class="text-secondary">Order now to get this product delivery</p>
+            </div>
+            <div class="delivery-options my-4">
+                <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Delivery options</b> </p>
+                <p class="text-secondary">View delivery options here</p>
+            </div>
+            
+         
+        </div>
+    </div>
+</div>
+
+

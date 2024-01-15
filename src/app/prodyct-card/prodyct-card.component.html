@@ -1,0 +1,81 @@
+
+<div class="card  h-100 m-1">
+  <div class="product-container" style="background-image: url({{product.images[0]}}); cursor: pointer;" (click)="details(product.id)">
+    @if (product.stock > 0) {
+      <p class="stock">In Stock</p>
+    }@else {
+      <p class="out-stock">Out Stock</p>
+    }
+  </div>
+
+  <div class="card-body mb-1">
+    <div class="container p-0">
+      <div class="row">
+        <div class="row font-weight-bold h6">
+     
+          <div class="col-9 " (click)="details(product.id)" style="cursor: pointer;">{{product.title}}:</div>
+          <div class="col-3 p-0 text-right " (click)="details(product.id)" style="cursor: pointer;">( {{product.price}} $)</div>
+        </div>
+        <div class="col"  (click)="details(product.id)" style="cursor: pointer;">
+          {{product.description}}
+        </div>
+      </div>
+      <div class="row mb-2">
+        <button class="btn btn-danger btn-block mb-2 rounded-pill" (click)="AddtoCart(product)">Add to Cart</button>
+        <!-- <button class="btn btn-success btn-block rounded-pill" (click)="details(product.id)">Product Details</button> -->
+        <p class="rateing">
+
+        @if (product.rating<=0) {
+            <i class="bi bi-star bigger-icon"></i>
+            <i class="bi bi-star bigger-icon"></i>
+            <i class="bi bi-star bigger-icon"></i>
+            <i class="bi bi-star bigger-icon"></i>
+            <i class="bi bi-star bigger-icon"></i>
+
+
+        }@else if(product.rating>1 && product.rating<=2){
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+
+        }
+        @else if(product.rating>2 && product.rating<=3){
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+
+        }
+        @else if(product.rating>3 && product.rating<4){
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star bigger-icon"></i>
+          <i class="bi bi-star bigger-icon"></i>
+
+        }
+        @else if(product.rating>=4 && product.rating<=(4.5)){
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star bigger-icon"></i>
+
+        }
+        @else {
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+          <i class="bi bi-star-fill bigger-icon" style="color: green;"></i>
+
+        }
+      </p><span>({{product.rating}})</span>
+
+    </div>
+    </div>
+  </div>
+</div>

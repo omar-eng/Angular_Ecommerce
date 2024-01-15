@@ -1,0 +1,14 @@
+<h2>Products</h2>
+<hr>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- search -->
+  
+    <!-- //12 colmuns -->
+  @for (product of products; track product.id; let i =$index) {
+    <app-prodyct-card [product]="product"></app-prodyct-card>
+  }@empty {
+  }
+
+  </div>

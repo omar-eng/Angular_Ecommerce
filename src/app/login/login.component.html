@@ -1,0 +1,25 @@
+<div class="container text-center">
+<form #myForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <!-- Email Address -->
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="form-control" />
+      <div *ngIf="myForm.controls['email'].touched && myForm.controls['email'].invalid" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+  
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" minlength="8" id="password" name="password" [(ngModel)]="user.passwrd" required class="form-control" />
+      <div *ngIf="myForm.controls['password'].touched && myForm.controls['password'].invalid" class="text-danger">
+        Password is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Submit</button>
+
+    <!-- {{user | json}} -->
+  </form>
+</div>

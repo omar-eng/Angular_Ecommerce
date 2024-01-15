@@ -1,0 +1,48 @@
+p{
+    display: inline;
+}
+
+.price{
+    margin-left: 20px;
+    display: inline;
+}
+.cont{
+    margin-bottom: 10px;
+    gap: 10px;
+    float: inline;
+}
+
+.row{
+    margin-bottom: 20px;
+}
+.product-container {
+    height: 200px; 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .stock{
+    margin: 30px;
+    width: 80px;
+    height: 50px;
+    border-radius: 30%;
+    background-color: rgb(8, 197, 8);
+
+  }
+  .out-stock{
+    margin: 30px;
+    width: 80px;
+    height: 50px;
+    border-radius: 30%;
+    background-color: red;
+  }
+  .rateing{
+    height: 20px;
+    margin-top: 10px;
+  }
+  .bigger-icon {
+    font-size: 1.8em; 
+  }
+
+  
